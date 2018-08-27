@@ -1,0 +1,7 @@
+input {margin-right:5px;margin-left: 5px; margin-bottom: 10px}
+fieldset {margin-bottom: 5px;  border: groove; padding-top: 0}
+legend {font-size: medium; width: auto; margin-left: 10px; color: white}
+.btn {width: 150px; height: 35px;}
+.container {display: block;margin-bottom:100px}
+.card {width: 450px }
+form { width: 420px; margin: auto}

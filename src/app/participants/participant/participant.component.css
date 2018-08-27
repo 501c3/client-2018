@@ -1,0 +1,6 @@
+input {margin-right:5px;margin-left: 5px; margin-bottom: 10px}
+.container {display: block;margin-bottom:100px}
+fieldset {margin-bottom: 5px;  border: groove; padding-top: 0; color: white}
+legend {font-size: medium; width: auto; margin-left: 10px; color: white;}
+table td { min-width: 120px; padding-left: 10px;}
+button {width: 120px;}

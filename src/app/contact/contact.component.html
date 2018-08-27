@@ -1,0 +1,47 @@
+<div class="container" align="center">
+  <h1>Contact Information Again</h1>
+  <div class = "card bg-primary">
+  <form autocomplete="off" [formGroup] = "form" novalidate #f>
+    <fieldset class="form-control-plaintext" >
+      <legend>Name</legend>
+      <input placeholder="Title" size="4" type="text" formControlName = "title"  />
+      <input placeholder="First" size="10" type="text" formControlName ="first"/>
+      <input placeholder="MI" size="4" type="text" formControlName ="middle" />
+      <input placeholder="Last"  size="10" type="text" formControlName ="last" />
+      <input placeholder="Suffix" size="4" type="text" formControlName = "suffix"/>
+    </fieldset>
+    <div class="field-error-message"
+        *ngIf="form.controls.first.error?.required && form.controls.last.error?.required ">Missing first or last name.</div>
+    <fieldset  class="form-control-plaintext" >
+       <legend>Email Address</legend>
+       <div style="margin-bottom:10px">
+        <input placeholder="Email" size="43" type="email" formControlName ="email" />
+       </div>
+       <div>
+         <input placeholder="Repeat Email" size="43" type="email" formControlName ="email" />
+       </div>
+     </fieldset>
+
+     <fieldset>
+       <legend>Address/Organization</legend>
+       <div>
+          <input placeholder="Country" size="43" type="text" formControlName ="country"  value="United States"/>
+       </div>
+       <div>
+          <input placeholder="Organization"  size="43" type="text" formControlName ="organization"/>
+       </div>
+       <div>
+          <input placeholder="City" size="20" type="text" formControlName ="city" />
+          <input placeholder="ST"  size="4" type="text" formControlName ="st"/>
+          <input placeholder="Postal or Zip" size="13" type="text" formControlName ="postal"/>
+       </div>
+     </fieldset>
+    <button type="button" #submitButton class = "btn btn-light">Submit</button>
+  </form>
+  </div>
+  <div class="debug">
+    {{diagnostic}}
+    <hr/>
+    {{f.reportValidity()|json}}
+  </div>
+</div>

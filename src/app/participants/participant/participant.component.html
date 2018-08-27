@@ -1,0 +1,79 @@
+<div class="container">
+  {{diagnosticA}}
+  <hr>
+  {{diagnosticB}}
+  DiagnosticB
+
+  <form autocomplete="off" [formGroup]='form' novalidate>
+    <fieldset class="form-control-plaintext">
+      <legend>Name</legend>
+      <input type="hidden" name="id" formControlName="id" />
+      <input placeholder="First" size="15" type="text" required  formControlName="first"/>
+      <input placeholder="Last"  size="15" type="text" required formControlName="last"/>
+      <input placeholder="age"  size="5" type="text" required formControlName="years"/> On Dec 31, 2018
+      <div>Error message here.</div>
+    </fieldset>
+    <fieldset class="form-control-plaintext" >
+      <legend>Status</legend>
+      <table>
+        <tr>
+          <td  width = "200px">
+            <input type="radio" required  id="male" [value]="'M'" required
+                   formControlName="sex"/>
+            &nbsp;<label for="male">Male</label>&nbsp;&nbsp;
+          </td>
+          <td width = "200px">
+            <input type="radio" required  id="typeA_0" [value]="typeA[0]"
+                   formControlName="typeA"/>
+            &nbsp;<label for="typeA_0">{{typeA[0].name}}</label>&nbsp;&nbsp;&nbsp;
+          </td>
+          <td width = "200px">
+            <input type="radio" id="typeB_0" [value]="typeB[0]"
+                    formControlName="typeB" />
+            &nbsp;<label for="typeB_0" >{{typeB[0].name}}</label>&nbsp;&nbsp;&nbsp;
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <input type="radio" required id="female" [value]="'F'" formControlName="sex"/>
+            &nbsp;<label for="female">Female</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          </td>
+          <td>
+            <input type="radio" required  id="typeA_1" [value]="typeA[1]"
+                   formControlName="typeA"/>
+            &nbsp;<label for="typeA_1">{{typeA[1].name}}</label>&nbsp;&nbsp;&nbsp;&nbsp;
+          </td>
+          <td>
+            <input type="radio" required id="typeB_1" [value]="typeB[1]"
+                  formControlName="typeB"/>
+            &nbsp;<label for="typeB_1">{{typeB[1].name}}</label>
+          </td>
+        </tr>
+      </table>
+    </fieldset>
+    <fieldset>
+      <legend>Types of Events/Exams</legend>
+      <div *ngFor="let model of models; let idx = index">
+          <input type="checkbox" (change)="onChange(idx, input.checked)" #input [value] = "model"/>
+          {{model.name}}
+      </div>
+    </fieldset>
+    <fieldset>
+      <legend>Genre/Proficiency</legend>
+      <table formGroupName="proficiencies">
+        <tr><td>Genre</td><td>Proficiency</td></tr>
+        <tr *ngFor="let genre of proficiencies">
+          <td>{{genre.select.name}}</td>
+          <td>
+              <select formControlName="{{genre.select.name}}">
+                <option [ngValue] ="option" *ngFor="let option of genre.options">{{option.name}}</option>
+              </select>
+          </td>
+        </tr>
+      </table>
+    </fieldset>
+    <p><button>Add</button></p>
+  </form>
+
+</div>
+

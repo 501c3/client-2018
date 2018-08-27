@@ -1,0 +1,31 @@
+<div class = "container">
+  <h2 align="center">Individual Participant Information</h2>
+      <div class = "row">
+        <div class = "col-5 card bg-primary" align="left">
+          <table>
+            <tr *ngIf="length$|async"><th>&nbsp;</th><th>ID</th><th>First</th><th>Last</th><th>Age</th><th>&nbsp;</th></tr>
+            <tr *ngFor="let participant of list$|async">
+              <td> <a  class="btn btn-info btn-sm"  (click)="onDelete(participant)">
+                <img src="assets/img/trash-icon.png" width="20px"/>
+              </a></td>
+              <td>{{participant.id}}</td>
+              <td>{{participant.first}}</td>
+              <td>{{participant.last}}</td>
+              <td>{{participant.years}}</td>
+              <td> <a  class="btn btn-info btn-sm"  (click)="onEdit(participant)">
+                <img src="assets/img/edit-icon.png" width="20px"/>
+              </a></td>
+            </tr>
+          </table>
+        </div>
+        <div class = " offset-1 col-6 card bg-primary">
+           <app-participant [participant]="participant">
+             Failed to initialize participant form.
+           </app-participant>
+        </div>
+      </div>
+</div>
+<br>
+<div>
+  <!--{{diagnostic}}-->
+</div>
